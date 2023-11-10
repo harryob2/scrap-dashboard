@@ -8,7 +8,7 @@ import numpy as np
 import json
 
 # Load the dataset
-file_path = r"filt_scrap past year.csv"
+file_path = r"half filt_scrap past year.csv"
 scrap_data = pd.read_csv(file_path)
 
 # Convert the 'Transaction Date' to datetime format for proper plotting
