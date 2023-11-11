@@ -19,7 +19,7 @@ scrap_data['Booking Date'] = pd.to_datetime(scrap_data['Booking Date'], format='
 app = Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
 
 # This line is critical for Heroku deployment to work properly
-server = app
+server = app.server
 
 # Need this to run on Heroku also
 # app.config['SECRET_KEY'] = 'thekey'
