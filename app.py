@@ -13,7 +13,7 @@ file_path = r"half filt_scrap past year.csv"
 scrap_data = pd.read_csv(file_path)
 
 # Convert the 'Transaction Date' to datetime format for proper plotting
-scrap_data['Booking Date'] = pd.to_datetime(scrap_data['Booking Date'])
+scrap_data['Booking Date'] = pd.to_datetime(scrap_data['Booking Date'], format='%d/%m/%Y')
 
 # Initialize the Dash app
 app = Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
