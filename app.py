@@ -22,7 +22,7 @@ app = Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLw
 server = app
 
 # Need this to run on Heroku also
-app.config['SECRET_KEY'] = 'thekey'
+# app.config['SECRET_KEY'] = 'thekey'
 
 
 # Filter out null or NaN values from 'Reason Code Disc'
