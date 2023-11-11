@@ -6,7 +6,7 @@ from dash_split_pane import DashSplitPane
 from datetime import datetime, timedelta
 import numpy as np
 import json
-import gunicorn
+import os
 
 # Load the dataset
 file_path = r"half filt_scrap past year.csv"
@@ -360,4 +360,10 @@ def update_scrap_bar_chart(selected_depts, selected_date_range_json):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    # Heroku assigns the port number via the PORT environment variable.
+    # We don't need to (and shouldn't) specify the port and host in our code.
+    # Heroku will handle it when deploying the app.
+    # We only provide a default for local development.
+    port = int(os.environ.get('PORT', 5000))
+    # Host '0.0.0.0' is set to allow connections on all network interfaces.
+    app.run_server(host='0.0.0.0', port=port)
