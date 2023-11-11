@@ -14,12 +14,16 @@ scrap_data = pd.read_csv(file_path)
 
 # Convert the 'Transaction Date' to datetime format for proper plotting
 scrap_data['Booking Date'] = pd.to_datetime(scrap_data['Booking Date'], format='%d/%m/%Y')
-print(scrap_data['Booking Date'].head())
-print(scrap_data['Booking Date'].dtype)
-
 
 # Initialize the Dash app
 app = Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+
+# This line is critical for Heroku deployment to work properly
+server = app
+
+# Need this to run on Heroku also
+app.config['SECRET_KEY'] = 'thekey'
+
 
 # Filter out null or NaN values from 'Reason Code Disc'
 valid_reason_codes = scrap_data['Reason Code Disc'].dropna().unique()
