@@ -369,4 +369,4 @@ if __name__ == '__main__':
     # We only provide a default for local development.
     port = int(os.environ.get('PORT', 5000))
     # Host '0.0.0.0' is set to allow connections on all network interfaces.
-    app.run_server(host='0.0.0.0', port=port)
+    app.run_server(host='0.0.0.0', port=port, debug=False)
